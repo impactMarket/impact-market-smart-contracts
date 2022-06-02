@@ -40,6 +40,7 @@ interface IDonationMiner {
         uint256 rewardPeriodsCount; //total number of reward periods in which the donor donated
         mapping(uint256 => uint256) rewardPeriods; //list of all reward period ids in which the donor donated
         uint256 lastClaimPeriod; //last reward period id for which the donor has claimed the reward
+        uint256 stakingEarnings; //total earnings from staking
     }
 
     struct Donation {
@@ -80,7 +81,8 @@ interface IDonationMiner {
     function donors(address _donor) external view returns (
         uint256 rewardPeriodsCount,
         uint256 lastClaim,
-        uint256 lastClaimPeriod
+        uint256 lastClaimPeriod,
+        uint256 stakingEarnings
     );
     function donorRewardPeriod(address _donor, uint256 _rewardPeriodIndex) external view returns (uint256);
     function donations(uint256 _index) external view returns (

@@ -911,6 +911,7 @@ contract DonationMinerImplementation is
         view
         returns (uint256 _claimAmount, uint256 _lastDonorStakeAmount)
     {
+//        uint256 _stakingEarnings;
         Donor storage _donor = donors[_donorAddress];
 
         // _index is the last reward period number for which the donor claimed his reward
@@ -1011,6 +1012,9 @@ contract DonationMinerImplementation is
                     (_rewardAmount *
                         (_donorAmount * _stakingDonationRatio + _lastDonorStakeAmount)) /
                     (_totalAmount * _stakingDonationRatio + _stakesAmount);
+
+//                _stakingEarnings += (_rewardAmount *_lastDonorStakeAmount) /
+//                    (_totalAmount * _stakingDonationRatio + _stakesAmount);
             }
 
             _index++;

@@ -561,7 +561,7 @@ describe("Governance", function () {
 			);
 		});
 
-		it("should update governance params by proposal", async function () {
+		it.only("should update governance params by proposal", async function () {
 			const targets = [
 				governanceDelegator.address,
 				governanceDelegator.address,
